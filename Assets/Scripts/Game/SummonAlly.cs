@@ -14,6 +14,8 @@ public class SummonAlly : MonoBehaviour
 
     public void ActivateLine(int selectedAlly)
     {
+        AudioManager.Instance.Click();
+
         if (!defenseLine.activeSelf)
         {
             allyCode = selectedAlly;
@@ -45,6 +47,7 @@ public class SummonAlly : MonoBehaviour
 
     public void Summon(Transform parentTransform)
     {
+        AudioManager.Instance.Click();
         Instantiate(allyObject[allyCode], parentTransform.position, Quaternion.identity);
         defenseLine.SetActive(false);
     }
