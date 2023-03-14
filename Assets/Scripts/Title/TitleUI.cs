@@ -13,32 +13,27 @@ public class TitleUI : MonoBehaviour
 
     public void EnterLobby()
     {
-        AudioManager.Instance.Click();
         SceneManager.LoadScene("LobbyScene");
     }
 
     public void OpenManual()
     {
         manualPanel.SetActive(true);
-        AudioManager.Instance.Click();
     }
 
     public void CloseManual()
     {
         manualPanel.SetActive(false);
-        AudioManager.Instance.Click();
     }
 
     public void OpenOption()
     {
         optionPanel.SetActive(true);
-        AudioManager.Instance.Click();
     }
 
     public void CloseOption()
     {
         optionPanel.SetActive(false);
-        AudioManager.Instance.Click();
     }
 
     public void QuitGame()
