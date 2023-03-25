@@ -34,17 +34,6 @@ public class SummonAlly : MonoBehaviour
         }
     }
 
-    //public void CursorIn()
-    //{
-    //    Debug.Log("CursorIn");
-    //}
-
-    //public void CursorOut()
-    //{
-    //    Debug.Log("CursorOut");
-    //    gameObject.GetComponent<Image>().color = new Color(255, 255, 255, 255);
-    //}
-
     public void Summon(Transform parentTransform)
     {
         AudioManager.Instance.Click();
