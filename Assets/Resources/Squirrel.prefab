@@ -416,6 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4542689350092758443}
   - component: {fileID: 7103042890029084515}
+  - component: {fileID: 4471012646125254638}
   m_Layer: 0
   m_Name: Squirrel
   m_TagString: Untagged
@@ -460,6 +461,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &4471012646125254638
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501356048656341970}
+  m_Enabled: 1
+  m_SortingLayerID: -861842879
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &4578104258669052040
 GameObject:
   m_ObjectHideFlags: 0

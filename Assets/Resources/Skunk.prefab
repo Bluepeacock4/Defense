@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1053517451984104289}
   - component: {fileID: 4707830214628471227}
+  - component: {fileID: 1821763163591121006}
   m_Layer: 0
   m_Name: Skunk
-  m_TagString: Untagged
+  m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +55,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!210 &1821763163591121006
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690330082429958123}
+  m_Enabled: 1
+  m_SortingLayerID: -861842879
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!1 &847400984149777398
 GameObject:
   m_ObjectHideFlags: 0
