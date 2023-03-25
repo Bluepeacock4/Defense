@@ -8018,6 +8018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8796333258985782640, guid: 2ddf5d8db973c8049ab11ca6665363e7, type: 3}
+  enemyCount: 5
   spawnDelay: 2
   maintenanceTime: 1
   spawnPoints:
@@ -8346,7 +8347,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: -1000
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1855184752
 RectTransform:
