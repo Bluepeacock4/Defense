@@ -6,16 +6,21 @@ public class AllyWeapon : MonoBehaviour
 {
     public float Damage { get; protected set; }
 
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Attack(gameObject.GetComponent<IHitable>());
+            Attack(collision.gameObject.GetComponent<IHitable>());
         }
     }
 
     protected virtual void Attack(IHitable target)
     {
         target.Hit(Damage);
+    }
+
+    protected virtual void DestroyWeapon()
+    {
+        Destroy(gameObject);
     }
 }

@@ -7104,11 +7104,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemyUnits:
-    - enemyPrefab: {fileID: 8796333258985782640, guid: 2ddf5d8db973c8049ab11ca6665363e7, type: 3}
+    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
       enemyCount: 5
-    - enemyPrefab: {fileID: 8796333258985782640, guid: 65738762e801f2546b762aef24307163, type: 3}
+    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
       enemyCount: 1
-    - enemyPrefab: {fileID: 8796333258985782640, guid: 2ddf5d8db973c8049ab11ca6665363e7, type: 3}
+    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
       enemyCount: 1
     spawnInterval: 1
     waveInterval: 2

@@ -15,16 +15,19 @@ public class Ally : MonoBehaviour, IAttackable, IHitable
     private float attackCooldown;
 
     public virtual float AttackSpeed { get; protected set; }
-    public virtual float Health {
+
+    protected float health;
+    public virtual float Health
+    {
         get
         {
-            return Health;
+            return health;
         }
 
         protected set
         {
-            Health = Mathf.Clamp(Health += value, 0, MaxHealth);
-            if (Health <= 0)
+            health = Mathf.Clamp(value, 0, MaxHealth);
+            if (health <= 0)
             {
                 Die();
             }
@@ -33,12 +36,12 @@ public class Ally : MonoBehaviour, IAttackable, IHitable
     public virtual float MaxHealth { get; protected set; }
 
 
-    private void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         attackCooldown = Mathf.Max(attackCooldown - Time.smoothDeltaTime, 0);
 
@@ -51,18 +54,18 @@ public class Ally : MonoBehaviour, IAttackable, IHitable
     
     public virtual void Attack()
     {
-        animator.SetTrigger("attack");
+        animator.SetTrigger("Attack");
     }
 
     public virtual void Hit(float damage)
     {
-        animator.SetTrigger("hit");
-        Health = damage;
+        // animator.SetTrigger("Hit");
+        Health -= damage;
     }
 
     protected virtual void Die()
     {
-        animator.SetTrigger("die");
+        animator.SetTrigger("Die");
     }
 
     public virtual void OnAttackAnimation()

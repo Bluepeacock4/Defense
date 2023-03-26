@@ -8,27 +8,26 @@ public class Acorn : AllyWeapon
 
     public float MoveSpeed { get; private set; }
 
-    private void Start()
+    protected void Start()
     {
         Damage = 25;
+        MoveSpeed = 2.5f;
         animator = GetComponent<Animator>();
         StartCoroutine(MoveCoroutine());
     }
 
     private IEnumerator MoveCoroutine()
     {
-        transform.Translate(Vector3.right * MoveSpeed * Time.smoothDeltaTime);
-        yield return null;
+        while (true)
+        {
+            transform.Translate(Vector3.right * MoveSpeed * Time.smoothDeltaTime);
+            yield return null;
+        }
     }
 
     protected override void Attack(IHitable target)
     {
         base.Attack(target);
-        animator.SetTrigger("attack");
-    }
-
-    private void OnAttackAnimation()
-    {
-        Destroy(gameObject);
+        animator.SetTrigger("Attack");
     }
 }

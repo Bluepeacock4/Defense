@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Squirrel : Ally
 {
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         AttackSpeed = 0.5f;
         MaxHealth = 100;
         Health = MaxHealth;
