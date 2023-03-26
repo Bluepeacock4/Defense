@@ -25,7 +25,7 @@ public class EnemyManager : MonoBehaviour
         switch (collision.tag)
         {
             case "Base":
-                collision.SendMessage("Attacked" , 5);
+                // collision.SendMessage("Attacked" , 5);
                 Destroy(gameObject);
                 break;
 
