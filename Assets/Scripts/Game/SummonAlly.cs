@@ -10,6 +10,7 @@ public class SummonAlly : MonoBehaviour
     public Image[] allyImage;
     public float[] coolTime;
     public CostManager unitCostManager;
+    public GameObject gameGreed;
 
     private int allyCode;
     private Button[] lineButtons;
@@ -28,11 +29,14 @@ public class SummonAlly : MonoBehaviour
         {
             allyCode = selectedAlly;
 
+            gameGreed.SetActive(true);
             defenseLine.SetActive(true);
+
             SetButton();
         }
         else
         {
+            gameGreed.SetActive(false);
             defenseLine.SetActive(false);
         }
 
@@ -45,6 +49,7 @@ public class SummonAlly : MonoBehaviour
             AudioManager.Instance.Click();
 
             Instantiate(allyObject[allyCode], parentTransform.position, Quaternion.identity);
+            gameGreed.SetActive(false);
             defenseLine.SetActive(false);
             unitCostManager.RemoveCost(allyCode);
 

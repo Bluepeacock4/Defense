@@ -31,6 +31,7 @@ public class PauseGame : MonoBehaviour
     {
         GameManager.Instance.EnterTitle();
         GameManager.Instance.ContinueGame();
+        AudioManager.Instance.Title();
     }
 
 
