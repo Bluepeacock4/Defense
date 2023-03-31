@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Acorn : AllyWeapon
+public class Acorn : Weapon
 {
     private Animator animator;
 
@@ -10,7 +10,6 @@ public class Acorn : AllyWeapon
 
     protected void Start()
     {
-        Damage = 25;
         MoveSpeed = 2.5f;
         animator = GetComponent<Animator>();
         StartCoroutine(MoveCoroutine());
@@ -25,7 +24,7 @@ public class Acorn : AllyWeapon
         }
     }
 
-    protected override void Attack(IHitable target)
+    protected override void Attack(Character target)
     {
         base.Attack(target);
         animator.SetTrigger("Attack");

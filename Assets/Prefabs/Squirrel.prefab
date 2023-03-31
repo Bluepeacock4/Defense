@@ -378,7 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893147951756416827}
   - component: {fileID: 8521404640898622053}
-  - component: {fileID: 1198557673524928887}
+  - component: {fileID: 4815909669545136097}
   m_Layer: 0
   m_Name: AttackRange
   m_TagString: Untagged
@@ -399,7 +399,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4542689350092758443}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8521404640898622053
 BoxCollider2D:
@@ -414,7 +414,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.5, y: 0.5}
+  m_Offset: {x: 4.5, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -425,9 +425,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 1}
+  m_Size: {x: 9, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1198557673524928887
+--- !u!114 &4815909669545136097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -436,9 +436,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 3883206560911448607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4df5c342e5457e04eac6e7d9db96308d, type: 3}
+  m_Script: {fileID: 11500000, guid: 28d810180d5683e4a8c06aaf26daea68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onBeingAttackable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8143222397797872412}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onBeingNotAttackable:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8143222397797872412}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: StopAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  targetTag: Enemy
 --- !u!1 &3929408066715336233
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +506,7 @@ Transform:
   - {fileID: 178237629282769194}
   - {fileID: 6418553649879082174}
   m_Father: {fileID: 4542689350092758443}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &4501356048656341970
 GameObject:
@@ -507,12 +538,12 @@ Transform:
   m_GameObject: {fileID: 4501356048656341970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6375563390324197486}
   - {fileID: 1893147951756416827}
   - {fileID: 2482050265457406038}
-  - {fileID: 6375563390324197486}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -560,9 +591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67d4cf3eef4c8047aa601e2645bb6a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: {fileID: 1198557673524928887}
+  attackRange: {fileID: 4815909669545136097}
   attackObject: {fileID: 5827756320159069175, guid: f2481c0045d1a93479204abfd900c2f5, type: 3}
   attackPosition: {fileID: 2482050265457406038}
+  attackSpeed: 1
+  maxHealth: 100
 --- !u!61 &8754458763885149597
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -903,7 +936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4542689350092758443}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7785498634011813178
 GameObject:
