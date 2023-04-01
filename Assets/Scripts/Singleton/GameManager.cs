@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance = null;
 
+    public bool isPause;
     public int stageLevel;
+
 
     private void Awake()
     {
@@ -27,5 +30,35 @@ public class GameManager : MonoBehaviour
     {
         stageLevel = level;
         Debug.Log("≥≠¿Ãµµ : " + stageLevel);
+    }
+
+    public void PauseGame()
+    {
+        if (!isPause)
+        {
+            Time.timeScale = 0;
+            isPause = true;
+        }
+        else
+        {
+            ContinueGame();
+        }
+    }
+
+    public void ContinueGame()
+    {
+        Time.timeScale = 1;
+        isPause = false;
+    }
+
+    public void EnterTitle()
+    {
+        AudioManager.Instance.Click();
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    public void OpenOption()
+    {
+        AudioManager.Instance.OpenPannel();
     }
 }

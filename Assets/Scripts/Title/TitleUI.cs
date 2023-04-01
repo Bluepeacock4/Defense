@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class TitleUI : MonoBehaviour
 {
     public GameObject manualPanel;
-    public GameObject optionPanel;
 
     #region TitleMenu
 
@@ -31,13 +30,13 @@ public class TitleUI : MonoBehaviour
 
     public void OpenOption()
     {
-        optionPanel.SetActive(true);
+        AudioManager.Instance.OpenPannel();
         AudioManager.Instance.Click();
     }
 
     public void CloseOption()
     {
-        optionPanel.SetActive(false);
+        AudioManager.Instance.ClosePannel();
         AudioManager.Instance.Click();
     }
 

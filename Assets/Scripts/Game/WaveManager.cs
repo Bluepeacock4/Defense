@@ -7,7 +7,7 @@ public class WaveManager : MonoBehaviour
     public Wave[] waves;
     public Transform[] spawnPoints;
 
-    private int _currentWaveIndex = 0;
+    private int currentWaveIndex = 0;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class WaveManager : MonoBehaviour
 
     private IEnumerator SpawnWave()
     {
-        Wave currentWave = waves[_currentWaveIndex];
+        Wave currentWave = waves[currentWaveIndex];
 
         foreach (EnemyUnit enemyUnit in currentWave.enemyUnits)
         {
@@ -27,9 +27,9 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        _currentWaveIndex++;
+        currentWaveIndex++;
 
-        if (_currentWaveIndex < waves.Length)
+        if (currentWaveIndex < waves.Length)
         {
             yield return new WaitForSeconds(currentWave.waveInterval);
             StartCoroutine(SpawnWave());
