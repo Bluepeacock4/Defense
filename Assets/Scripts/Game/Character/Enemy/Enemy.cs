@@ -24,4 +24,13 @@ public class Enemy : Character
             animator.SetBool("Move", false);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Base")
+        {
+            collision.gameObject.GetComponent<BaseManager>().Attacked(10f);
+            Die();
+        }
+    }
 }
