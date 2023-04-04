@@ -32,23 +32,25 @@ public class SummonAlly : MonoBehaviour
             gameGreed.SetActive(true);
             defenseLine.SetActive(true);
 
-            SetButton();
+            SetButton(selectedAlly);
         }
         else
         {
             gameGreed.SetActive(false);
             defenseLine.SetActive(false);
         }
-
     }
 
-    public IEnumerator SummonAndCoolTime(Transform parentTransform)
+    public IEnumerator SummonAndCoolTime(Transform parentTransform, int selectedAlly)
     {
-        if (!isCoolDown[allyCode] && unitCostManager.isEnough(allyCode))
+        if (!isCoolDown[selectedAlly] && unitCostManager.isEnough(selectedAlly))
         {
             AudioManager.Instance.Click();
 
-            Instantiate(allyObject[allyCode], parentTransform.position, Quaternion.identity);
+            //GameObject spawnedUnit = Instantiate(allyObject[allyCode], parentTransform.position, Quaternion.identity);
+            //spawnedUnit.transform.SetParent(parentTransform);
+            //spawnedUnit.transform.localPosition = Vector3.zero;
+            //spawnedUnit.transform.SetParent(null);
             gameGreed.SetActive(false);
             defenseLine.SetActive(false);
             unitCostManager.RemoveCost(allyCode);
@@ -59,6 +61,10 @@ public class SummonAlly : MonoBehaviour
 
             yield return new WaitForSeconds(coolTime[allyCode]);
             isCoolDown[allyCode] = false;
+        }
+        else
+        {
+            allyImage[allyCode].fillAmount = 0f;
         }
     }
 
@@ -78,13 +84,13 @@ public class SummonAlly : MonoBehaviour
 
     }
 
-    public void SetButton()
+    public void SetButton(int selectedAlly)
     {
         lineButtons = GetComponentsInChildren<Button>();
 
         foreach (Button button in lineButtons)
         {
-            button.onClick.AddListener(() => StartCoroutine(SummonAndCoolTime(button.transform)));
+            button.onClick.AddListener(() => StartCoroutine(SummonAndCoolTime(button.transform, selectedAlly)));
         }
     }
 

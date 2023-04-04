@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
@@ -19,7 +20,8 @@ public class PauseGame : MonoBehaviour
 
     public void ReStart()
     {
-        
+        SceneManager.LoadScene("GameScene");
+        GameManager.Instance.ContinueGame();
     }
 
     public void OpenOption()

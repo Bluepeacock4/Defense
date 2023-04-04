@@ -1,17 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour
 {
     public Wave[] waves;
     public Transform[] spawnPoints;
+    public Slider waveProgressBar;
 
     private int currentWaveIndex = 0;
+    private int totalEnemy = 0;
+    private int spawnedEnemy = 0;
 
     private void Start()
     {
+        FindTotalEnemy();
         StartCoroutine(SpawnWave());
+    }
+
+    private void Update()
+    {
+        UpdateWaveProgress(spawnedEnemy, totalEnemy);
+    }
+
+    private void FindTotalEnemy()
+    {
+        foreach (Wave wave in waves)
+        {
+            foreach (EnemyUnit enemyUnit in wave.enemyUnits)
+            {
+                totalEnemy += enemyUnit.enemyCount;
+            }
+        }
     }
 
     private IEnumerator SpawnWave()
@@ -23,6 +44,7 @@ public class WaveManager : MonoBehaviour
             for (int i = 0; i < enemyUnit.enemyCount; i++)
             {
                 SpawnEnemy(enemyUnit.enemyPrefab);
+                spawnedEnemy++;
                 yield return new WaitForSeconds(currentWave.spawnInterval);
             }
         }
@@ -40,6 +62,12 @@ public class WaveManager : MonoBehaviour
     {
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+    }
+
+    private void UpdateWaveProgress(int spawnedEnemy, int totalEnemy)
+    {
+        float progress = (float)spawnedEnemy / (float)totalEnemy;
+        waveProgressBar.value = progress; 
     }
 
     [System.Serializable]
