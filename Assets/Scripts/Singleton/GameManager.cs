@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
     public void EnterTitle()
     {
         ContinueGame();
+        killCount = 0;
         AudioManager.Instance.Click();
         SceneManager.LoadScene("TitleScene");
     }
