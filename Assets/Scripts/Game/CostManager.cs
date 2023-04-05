@@ -12,7 +12,7 @@ public class CostManager : MonoBehaviour
     public TextMeshProUGUI seedPointText;
 
     private int seedPoint;
-    private float spawnInterval = 2f;
+    private float spawnInterval = 5f;
     private float yPosition = 2f;
     private float minX = -5.65f;
     private float maxX = 5.65f;
@@ -40,7 +40,7 @@ public class CostManager : MonoBehaviour
         seedPointText.text = seedPoint.ToString();
     }
 
-    private IEnumerator SpawnCost()
+    public IEnumerator SpawnCost()
     {
 
         yield return new WaitForSeconds(delayTime);

@@ -67,6 +67,12 @@ public class Character : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled = false;
         attackRange.gameObject.SetActive(false);
         animator.SetTrigger("Die");
+
+        if(gameObject.tag == "Enemy")
+        {
+            GameManager.Instance.killCount++;
+        }
+
     }
 
     public virtual void OnAttackAnimation()
