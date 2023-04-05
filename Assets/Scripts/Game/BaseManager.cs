@@ -12,7 +12,7 @@ public class BaseManager : MonoBehaviour
     public void Attacked(float damage)
     {
         AudioManager.Instance.Hit();
-        baseHP.value -= damage+20 / 100f;
+        baseHP.value -= damage / 100f;
         GameOverCheck();
     }
 
