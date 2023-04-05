@@ -8,6 +8,12 @@ public class Bullfrog : Enemy
     private float seconds = 0;
     private Coroutine moveCoroutine;
 
+    protected override void Start()
+    {
+        base.Start();
+        Health = maxHealth;
+    }
+
     public override void Move()
     {
         if (attackRange.Attackable == false)
@@ -17,6 +23,7 @@ public class Bullfrog : Enemy
         else
         {
             animator.SetBool("Move", false);
+            StopAllCoroutines();
         }
     }
 
