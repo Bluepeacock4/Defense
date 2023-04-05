@@ -20,6 +20,7 @@ public class PauseGame : MonoBehaviour
 
     public void ReStart()
     {
+        GameManager.Instance.killCount = 0;
         SceneManager.LoadScene("GameScene");
         GameManager.Instance.ContinueGame();
     }

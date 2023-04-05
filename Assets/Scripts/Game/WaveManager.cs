@@ -102,6 +102,12 @@ public class WaveManager : MonoBehaviour
         {
             endingObject[0].SetActive(true);
             StopCoroutine(costManager.SpawnCost());
+            Invoke("EndingPause", 4f);
         }
+    }
+
+    void EndingPause()
+    {
+        GameManager.Instance.PauseGame();
     }
 }

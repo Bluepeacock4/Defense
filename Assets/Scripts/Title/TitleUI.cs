@@ -18,6 +18,7 @@ public class TitleUI : MonoBehaviour
     #region TitleMenu
     public void StartGame()
     {
+        GameManager.Instance.killCount = 0;
         AudioManager.Instance.Game();
         SceneManager.LoadScene("GameScene");
     }
