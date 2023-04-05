@@ -5,21 +5,22 @@ using UnityEngine.UI;
 
 public class SummonAlly : MonoBehaviour
 {
-    public GameObject defenseLine;
-    public GameObject[] allyObject;
-    public Image[] allyImage;
-    public float[] coolTime;
+    [SerializeField]
+    private GameObject defenseLine;
+    [SerializeField]
+    private GameObject[] allyObject;
+    [SerializeField]
+    private GameObject gameGreed;
+
     public CostManager unitCostManager;
-    public GameObject gameGreed;
+    public CoolTimeManager coolTimeManager;
+    public float[] coolTime;
 
-    private int allyCode;
+    public int allyCode;
+    public bool[] isCoolDown;
+    public Image[] allyImage;
+
     private Button[] lineButtons;
-    private bool[] isCoolDown;
-
-    private void Start()
-    {
-        isCoolDown = new bool[allyObject.Length];
-    }
 
     public void ActivateLine(int selectedAlly)
     {
@@ -29,10 +30,10 @@ public class SummonAlly : MonoBehaviour
         {
             allyCode = selectedAlly;
 
+            //SetButton(selectedAlly);
             gameGreed.SetActive(true);
             defenseLine.SetActive(true);
 
-            SetButton(selectedAlly);
         }
         else
         {
@@ -41,64 +42,90 @@ public class SummonAlly : MonoBehaviour
         }
     }
 
-    public IEnumerator SummonAndCoolTime(Transform parentTransform, int selectedAlly)
+
+
+    public void SummonUnit(Transform parentTransform)
     {
-        if (!isCoolDown[selectedAlly] && unitCostManager.isEnough(selectedAlly))
+        if (!isCoolDown[allyCode] && unitCostManager.isEnough(allyCode))
         {
             AudioManager.Instance.Click();
 
-            //GameObject spawnedUnit = Instantiate(allyObject[allyCode], parentTransform.position, Quaternion.identity);
-            //spawnedUnit.transform.SetParent(parentTransform);
-            //spawnedUnit.transform.localPosition = Vector3.zero;
-            //spawnedUnit.transform.SetParent(null);
+            GameObject spawnedUnit = Instantiate(allyObject[allyCode], parentTransform.position, Quaternion.identity);
+            spawnedUnit.transform.SetParent(parentTransform);
+            spawnedUnit.transform.localPosition = Vector3.zero;
+            spawnedUnit.transform.SetParent(null);
             gameGreed.SetActive(false);
             defenseLine.SetActive(false);
             unitCostManager.RemoveCost(allyCode);
 
-            isCoolDown[allyCode] = true;
-            ResetButton();
-            StartCoroutine(CoolTimeFillAmount(allyCode));
-
-            yield return new WaitForSeconds(coolTime[allyCode]);
-            isCoolDown[allyCode] = false;
-        }
-        else
-        {
-            allyImage[allyCode].fillAmount = 0f;
+            coolTimeManager.StartCoolDown(allyCode);
         }
     }
 
-    IEnumerator CoolTimeFillAmount(int i)
-    {
-        float time = 0f;
-        allyImage[i].fillAmount = 1f;
+    //public void SetButton(int selectedAlly)
+    //{
+    //    lineButtons = defenseLine.GetComponentsInChildren<Button>();
 
-        while (time < coolTime[i])
+    //    foreach (Button button in lineButtons)
+    //    {
+    //        button.onClick.AddListener(() => SummonUnit(button.transform));
+    //    }
+    //}
+
+    public IEnumerator CoolTimeSu()
+    {
+        isCoolDown[2] = true;
+
+        float time = 0f;
+        allyImage[2].fillAmount = 1f;
+
+        while (time < coolTime[2])
         {
             time += Time.deltaTime;
-            allyImage[i].fillAmount = 1 - (time / coolTime[i]);
+            allyImage[allyCode].fillAmount = 1 - (time / coolTime[allyCode]);
             yield return null;
         }
 
-        allyImage[i].fillAmount = 0f;
+        allyImage[2].fillAmount = 0f;
 
+        isCoolDown[2] = false;
     }
 
-    public void SetButton(int selectedAlly)
+    public IEnumerator CoolTimeS()
     {
-        lineButtons = GetComponentsInChildren<Button>();
+        isCoolDown[0] = true;
 
-        foreach (Button button in lineButtons)
+        float time = 0f;
+        allyImage[0].fillAmount = 1f;
+
+        while (time < coolTime[0])
         {
-            button.onClick.AddListener(() => StartCoroutine(SummonAndCoolTime(button.transform, selectedAlly)));
+            time += Time.deltaTime;
+            allyImage[0].fillAmount = 1 - (time / coolTime[0]);
+            yield return null;
         }
+
+        allyImage[0].fillAmount = 0f;
+
+        isCoolDown[0] = false;
     }
 
-    public void ResetButton()
+    public IEnumerator CoolTimeB()
     {
-        foreach (Button button in lineButtons)
+        isCoolDown[1] = true;
+
+        float time = 0f;
+        allyImage[1].fillAmount = 1f;
+
+        while (time < coolTime[1])
         {
-            button.onClick.RemoveAllListeners();
+            time += Time.deltaTime;
+            allyImage[1].fillAmount = 1 - (time / coolTime[1]);
+            yield return null;
         }
+
+        allyImage[1].fillAmount = 0f;
+
+        isCoolDown[1] = false;
     }
 }

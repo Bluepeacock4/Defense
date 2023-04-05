@@ -8,6 +8,7 @@ public class WaveManager : MonoBehaviour
     public Wave[] waves;
     public Transform[] spawnPoints;
     public Slider waveProgressBar;
+    public float delayTime;
 
     private int currentWaveIndex = 0;
     private int totalEnemy = 0;
@@ -15,8 +16,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        FindTotalEnemy();
-        StartCoroutine(SpawnWave());
+        StartCoroutine(StartDelay());
     }
 
     private void Update()
@@ -67,7 +67,7 @@ public class WaveManager : MonoBehaviour
     private void UpdateWaveProgress(int spawnedEnemy, int totalEnemy)
     {
         float progress = (float)spawnedEnemy / (float)totalEnemy;
-        waveProgressBar.value = progress; 
+        waveProgressBar.value = progress;
     }
 
     [System.Serializable]
@@ -83,5 +83,12 @@ public class WaveManager : MonoBehaviour
     {
         public GameObject enemyPrefab;
         public int enemyCount;
+    }
+
+    IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(delayTime);
+        FindTotalEnemy();
+        StartCoroutine(SpawnWave());
     }
 }

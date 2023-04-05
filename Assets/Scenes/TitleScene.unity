@@ -616,7 +616,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
-  stageLevel: 0
 --- !u!1 &416494450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1669,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2105402991}
         m_TargetAssemblyTypeName: TitleUI, Assembly-CSharp
-        m_MethodName: EnterLobby
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
