@@ -48,6 +48,18 @@ public class AudioManager : MonoBehaviour
         float _bgmVolume = Mathf.Floor(bgmSlider.value * 100);
     }
 
+    public void SetBgmVolume(float value)
+    {
+        audioMixer.SetFloat("BGM", Mathf.Log10(value) * 20);
+        float _bgmVolume = Mathf.Floor(value * 100);
+    }
+
+    public float GetBgmVolume()
+    {
+        audioMixer.GetFloat("BGM", out float volume);
+        return Mathf.Pow(10f, volume / 20f);
+    }
+
     public void SetSeVolume()
     {
         audioMixer.SetFloat("SE", Mathf.Log10(seSlider.value) * 20);
@@ -78,11 +90,18 @@ public class AudioManager : MonoBehaviour
         bgmSound.Play();
     }
 
+    public void Title(int index)
+    {
+        bgmSound.clip = bgmClip[index];
+        bgmSound.Play();
+    }
+
     public void Game()
     {
         bgmSound.clip = bgmClip[1];
         bgmSound.Play();
     }
+
 
     public void Click()
     {
