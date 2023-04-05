@@ -58,3 +58,9 @@ TagManager:
   - name: EnemyAttack
     uniqueID: 4119860411
     locked: 0
+  - name: Resource
+    uniqueID: 3412495649
+    locked: 0
+  - name: UIObj
+    uniqueID: 2390688611
+    locked: 0

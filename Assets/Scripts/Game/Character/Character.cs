@@ -36,10 +36,6 @@ public class Character : MonoBehaviour
             Attack();
         }
         
-        if (Health <= 0)
-        {
-            Die();
-        }
     }
 
     public virtual void Attack()
@@ -60,6 +56,11 @@ public class Character : MonoBehaviour
     {
         animator.SetTrigger("Hit");
         Health -= damage;
+
+        if (Health <= 0)
+        {
+            Die();
+        }
     }
 
     protected virtual void Die()
