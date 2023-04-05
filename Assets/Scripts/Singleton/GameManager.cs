@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public bool isPause;
 
+    public int killCount;
+
     private void Awake()
     {
         if (_instance == null)
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void EnterTitle()
     {
+        ContinueGame();
         AudioManager.Instance.Click();
         SceneManager.LoadScene("TitleScene");
     }

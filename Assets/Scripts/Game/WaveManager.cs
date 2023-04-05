@@ -9,19 +9,24 @@ public class WaveManager : MonoBehaviour
     public Transform[] spawnPoints;
     public Slider waveProgressBar;
     public float delayTime;
+    public GameObject[] endingObject;
+    public CostManager costManager;
 
     private int currentWaveIndex = 0;
+    [SerializeField]
     private int totalEnemy = 0;
     private int spawnedEnemy = 0;
 
     private void Start()
     {
         StartCoroutine(StartDelay());
+        FindTotalEnemy();
     }
 
     private void Update()
     {
         UpdateWaveProgress(spawnedEnemy, totalEnemy);
+        CheckClear();
     }
 
     private void FindTotalEnemy()
@@ -88,7 +93,15 @@ public class WaveManager : MonoBehaviour
     IEnumerator StartDelay()
     {
         yield return new WaitForSeconds(delayTime);
-        FindTotalEnemy();
         StartCoroutine(SpawnWave());
+    }
+
+    void CheckClear()
+    {
+        if (GameManager.Instance.killCount == totalEnemy)
+        {
+            endingObject[0].SetActive(true);
+            StopCoroutine(costManager.SpawnCost());
+        }
     }
 }
