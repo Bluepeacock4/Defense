@@ -8,8 +8,6 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance = null;
 
     public bool isPause;
-    public int stageLevel;
-
 
     private void Awake()
     {
@@ -25,12 +23,6 @@ public class GameManager : MonoBehaviour
     }
 
     public static GameManager Instance => _instance == null ? null : _instance;
-
-    public void SetStageLevel(int level)
-    {
-        stageLevel = level;
-        Debug.Log("≥≠¿Ãµµ : " + stageLevel);
-    }
 
     public void PauseGame()
     {

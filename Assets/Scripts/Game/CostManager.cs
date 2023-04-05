@@ -7,6 +7,7 @@ using TMPro;
 public class CostManager : MonoBehaviour
 {
     public int[] unitCosts;
+    public float delayTime;
     public GameObject costPrefab;
     public TextMeshProUGUI seedPointText;
 
@@ -41,6 +42,9 @@ public class CostManager : MonoBehaviour
 
     private IEnumerator SpawnCost()
     {
+
+        yield return new WaitForSeconds(delayTime);
+
         while (true)
         {
             float xPosition = Random.Range(minX, maxX);

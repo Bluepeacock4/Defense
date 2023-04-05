@@ -10,10 +10,10 @@ public class TitleUI : MonoBehaviour
 
     #region TitleMenu
 
-    public void EnterLobby()
+    public void StartGame()
     {
-        AudioManager.Instance.Click();
-        SceneManager.LoadScene("LobbyScene");
+        AudioManager.Instance.Game();
+        SceneManager.LoadScene("GameScene");
     }
 
     public void OpenManual()
