@@ -6068,25 +6068,35 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
       enemyCount: 3
     - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
-      enemyCount: 2
+      enemyCount: 5
     - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
-      enemyCount: 1
+      enemyCount: 8
     spawnInterval: 2
     waveInterval: 5
   - enemyUnits:
     - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
-      enemyCount: 1
-    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
-      enemyCount: 2
-    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
-      enemyCount: 2
-    spawnInterval: 2
-    waveInterval: 5
-  - enemyUnits:
-    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
-      enemyCount: 1
+      enemyCount: 5
+    - enemyPrefab: {fileID: 1685528498980527671, guid: 39c2f3246d1961d45b77dc773b815c11, type: 3}
+      enemyCount: 3
     spawnInterval: 1
-    waveInterval: 10
+    waveInterval: 5
+  - enemyUnits:
+    - enemyPrefab: {fileID: 1685528498980527671, guid: 39c2f3246d1961d45b77dc773b815c11, type: 3}
+      enemyCount: 3
+    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
+      enemyCount: 5
+    spawnInterval: 2
+    waveInterval: 5
+  - enemyUnits:
+    - enemyPrefab: {fileID: 4377154936143379120, guid: f65250fefa20334468a5e223f67743c5, type: 3}
+      enemyCount: 10
+    spawnInterval: 1
+    waveInterval: 5
+  - enemyUnits:
+    - enemyPrefab: {fileID: 1685528498980527671, guid: 39c2f3246d1961d45b77dc773b815c11, type: 3}
+      enemyCount: 3
+    spawnInterval: 2
+    waveInterval: 1
   spawnPoints:
   - {fileID: 355789561}
   - {fileID: 256648152}
@@ -6094,7 +6104,7 @@ MonoBehaviour:
   - {fileID: 1860575660}
   - {fileID: 133906647}
   waveProgressBar: {fileID: 257346452}
-  delayTime: 2
+  delayTime: 5
   endingObject:
   - {fileID: 1604280202}
   - {fileID: 539469036}
@@ -6150,7 +6160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitCosts: 320000006400000064000000
-  delayTime: 2
+  delayTime: 3
   costPrefab: {fileID: 2060321632985377914, guid: f751a2a359f8de6499a3043ccd0678f3, type: 3}
   seedPointText: {fileID: 298926343}
 --- !u!4 &1691846526
