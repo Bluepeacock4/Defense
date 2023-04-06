@@ -62,6 +62,8 @@ public class TitleUI : MonoBehaviour
                 fadePanelImage.color.a - Time.deltaTime * fadeSpeed);
             yield return null;
         }
+
+        fadePanel.SetActive(false);
     }
 
     private IEnumerator DoFadeInSound()

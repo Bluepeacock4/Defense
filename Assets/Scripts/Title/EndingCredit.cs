@@ -21,10 +21,10 @@ public class EndingCredit : MonoBehaviour
         {
             creditRT.position = new Vector3(creditRT.position.x, creditRT.position.y + (Time.deltaTime * scrollUpSpeed));
 
-            if(creditRT.anchoredPosition.y > 920)
+            if(creditRT.anchoredPosition.y > 1200)
             {
                 isCredit = false;
-
+                creditRT.anchoredPosition = new Vector2(0, -600);
                 StartCoroutine(DoFadeOutSound());
             }
         }
